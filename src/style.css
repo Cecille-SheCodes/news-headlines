@@ -4,14 +4,14 @@ body {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 h1 {
   font-size: 36px;
   font-weight: 800;
   line-height: 1.5;
-  color: rgb(36, 15, 56);
+  color: rgb(53, 7, 97);
   text-align: center;
 }
 
@@ -22,6 +22,7 @@ h3 {
 form {
   margin-bottom: 20px;
   display: block;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -31,7 +32,8 @@ form {
     border-radius: 6px;
     border-color: rgb(143, 139, 139);
     color: rgb(71, 17, 125);
-}
+   }
+
 .button{
     line-height: 20px;
     font-size: 16px;
