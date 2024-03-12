@@ -7,7 +7,7 @@
     <title>Breaking News App</title>
 </head>
 <body>
-    <header>
+<div class="container"><header>
     <h1>
        News Headlines Generator
     </h1> 
@@ -15,11 +15,14 @@
 
     <main>
         <form>
-            <input type="text" placeholder="Type Keyword"/>
-            <input type="submit"/>
+            <input class="keyword" type="text" placeholder="Type Keyword"
+            autofocus required autocomplete="off"/>
+            <input type="submit" class="button"/>
+          <p><em>Example: Ukraine War or Top News</em></p>
         </form>
+      
 
-        <div>
+        <div class="news-headlines">
             
             <h3> Title of News1</h3>
             <p> Text about the news</p>
@@ -40,6 +43,7 @@
             and is hosted on <a href="https://cmsnewsheadlines.netlify.app">Netlify</a>
         </h6>
     </footer>
+</div>
 
     <script src="src/index.js"></script>
 </body>
