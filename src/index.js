@@ -1,26 +1,32 @@
-function generateNews(event) {
-  event.preventDefault();
+function displayNews(response){
 
-  new Typewriter(".searchedWord", {
-    strings: "!Latest News Update About The Searched Word!",
+ new Typewriter(".searchedWord", {
+    strings: "!Latest News Update!",
     autoStart: true,
     cursor: "",
     delay: 15,
   });
   
   let newsBox = document.querySelector(".news-headlines");
- 
- 
-  newsBox.innerHTML =
-    "<h3> Title of News1</h3>" +
-    "<p> Text about the news</p>" +
-    "<hr>" +
-    "<h3> Title of News2</h3>" +
-    "<p> Text about the news</p>" +
-    "<hr>" +
-    "<h3> Title of News3</h3>" +
-    "<p> Text about the news</p>" +
+  let html = ""; // Create an empty string to store the generated HTML
+
+  for (let i = 1; i <= 10; i++) {
+    html += "<h3>" + response.data.articles[i].title + "</h3>" +
+    "<p>" + response.data.articles[i].description + "</p>" +
+    '<a href="' + response.data.articles[i].url + '">More</a>' +
     "<hr>";
+  }
+
+  newsBox.innerHTML = html; // Update the newsBox with the generated HTML
+}
+
+function generateNews(event) {
+  event.preventDefault();
+
+  let userInstruction=document.querySelector(".keyword")
+  let apiKey = "7321c362fd5f43b9933eee0ceed59ee3";
+  let apiURL = `https://newsapi.org/v2/everything?q=${userInstruction.value}&sortBy=popularity&apiKey=${apiKey}`;
+  axios.get(apiURL).then(displayNews);
 }
 
 let searchForm = document.querySelector(".search-bar");
