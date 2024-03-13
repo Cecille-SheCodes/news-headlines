@@ -25,7 +25,7 @@ function generateNews(event) {
 
   let userInstruction=document.querySelector(".keyword")
   let apiKey = "7321c362fd5f43b9933eee0ceed59ee3";
-  let apiURL = `https://newsapi.org/v2/everything?q=${userInstruction.value}&sortBy=popularity&language=en&apiKey=${apiKey}`;
+  let apiURL = `https://newsapi.org/v2/everything?q=${userInstruction.value}&sortBy=popularity&apiKey=${apiKey}`;
   axios.get(apiURL).then(displayNews);
 }
 
