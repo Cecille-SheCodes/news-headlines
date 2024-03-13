@@ -13,7 +13,7 @@ function displayNews(response){
   for (let i = 1; i <= 10; i++) {
     html += "<h3>" + response.data.articles[i].title + "</h3>" +
     "<p>" + response.data.articles[i].description + "</p>" +
-    '<a href="' + response.data.articles[i].url + '">More</a>' +
+    '<a href="' + response.data.articles[i].url + '" target="_blank">More</a>' +
     "<hr>";
   }
 
