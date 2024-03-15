@@ -1,33 +1,26 @@
-function displayNews(response){
-
+function displayHaiku(response){
+let userInstruction = document.querySelector(".keyword");
  new Typewriter(".searchedWord", {
-    strings: "!Latest News Update!",
+    strings: `${userInstruction.value} by SheCodes AI`,
     autoStart: true,
     cursor: "",
     delay: 15,
   });
   
-  let newsBox = document.querySelector(".news-headlines");
-  let html = ""; // Create an empty string to store the generated HTML
-
-  for (let i = 1; i <= 10; i++) {
-    html += "<h3>" + response.data.articles[i].title + "</h3>" +
-    "<p>" + response.data.articles[i].description + "</p>" +
-    '<a href="' + response.data.articles[i].url + '" target="_blank">More</a>' +
-    "<hr>";
-  }
-
-  newsBox.innerHTML = html; // Update the newsBox with the generated HTML
+  let haikuBox = document.querySelector(".haiku-poem");
+  haikuBox.innerHTML = response.data.answer
 }
 
-function generateNews(event) {
+function generatePoem(event) {
   event.preventDefault();
 
-  let userInstruction=document.querySelector(".keyword")
-  let apiKey = "7321c362fd5f43b9933eee0ceed59ee3";
-  let apiURL = `https://newsapi.org/v2/everything?q=${userInstruction.value}&language=en&sortBy=popularity&apiKey=${apiKey}`;
-  axios.get(apiURL).then(displayNews);
+  let userInstruction = document.querySelector(".keyword");
+  let apiKey = "98c09939foc404ctfba2c9335a2bcf40";
+  let context = "You are an expert poet who generates Haikus and follows the 5-7-5 rule for syllables. You generate 6 lines of the poem. You will follow this important format: generate 3 lines in basic HTML and then generate 1 break line and then generate the last 3 lines in basic HTML. "
+  let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${userInstruction.value}&context=${context}&key=${apiKey}`;
+  
+  axios.get(apiURL).then(displayHaiku);
 }
 
 let searchForm = document.querySelector(".search-bar");
-searchForm.addEventListener("submit", generateNews);
+searchForm.addEventListener("submit", generatePoem);

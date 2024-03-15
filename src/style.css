@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(246, 237, 254);
+  background-image:url('set-purple-flowers-green-leaves.jpg');
+  background-size: cover;
 }
 .container {
   max-width: 600px;
@@ -13,6 +14,9 @@ h1 {
   line-height: 1.1;
   color: rgb(53, 7, 97);
   text-align: center;
+  background-color: rgb(245, 195, 245);
+    padding: 20px;
+border-radius: 6px;
 }
 
 h3 {
@@ -46,8 +50,20 @@ form {
     text-align: center;
     font-size: 12px;
 }
-.news-headlines{
+
+.haiku-container{
+    background-color:rgb(245, 195, 245);
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 50%;
+}
+.haiku-poem{
     margin-top: 30px;
+    font-size:20px;
+    font-weight:200px;
+
 }
 
 footer{
@@ -74,6 +90,7 @@ p{
     "XROT" -18,
     "YROT" 10;
      font-optical-sizing: auto;
+     text-align:center;
 }
 
 
